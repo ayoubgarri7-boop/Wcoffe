@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayoub Wcoffe</title>
+    <title>Ayoub Coffee</title>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         * {
@@ -22,7 +22,7 @@
             background-color: #f7f1ea;
         }
 
-        /* ===== BANDE MARRON EN HAUT ===== */
+        /* ===== TOP BROWN BAR ===== */
         header {
             background-color: #5a3a25;
             color: white;
@@ -52,7 +52,7 @@
             font-size: 2rem;
         }
 
-        /* Menu de navigation */
+        /* Navigation menu */
         nav ul {
             list-style: none;
             display: flex;
@@ -87,7 +87,7 @@
             width: 100%;
         }
 
-        /* La vague lisse sous la bande */
+        /* Smooth wave under the bar */
         .wave {
             display: block;
             width: 100%;
@@ -97,7 +97,7 @@
             margin-bottom: -6px;
         }
 
-        /* ===== SECTION D'ACCUEIL (HÉRO) ===== */
+        /* ===== HERO SECTION ===== */
         .hero {
             height: 70vh;
             margin-top: -6px;
@@ -126,7 +126,7 @@
             margin-bottom: 30px;
         }
 
-        /* Bouton d'action */
+        /* Action button */
         .btn {
             display: inline-block;
             background: #d9a86c;
@@ -145,7 +145,7 @@
             transform: translateY(-3px);
         }
 
-        /* ===== TITRES DE SECTION ===== */
+        /* ===== SECTION TITLES ===== */
         .section-title {
             text-align: center;
             font-family: 'Fredoka', cursive;
@@ -161,7 +161,7 @@
             font-weight: 300;
         }
 
-        /* ===== GRILLE DES CAFÉS ===== */
+        /* ===== COFFEE GRID ===== */
         .coffees {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -215,7 +215,7 @@
             color: #a06a3f;
         }
 
-        /* ===== SECTION À PROPOS ===== */
+        /* ===== ABOUT SECTION ===== */
         .about {
             background: #ece0d3;
             padding: 70px 20px;
@@ -241,7 +241,7 @@
             font-weight: 300;
         }
 
-        /* ===== PIED DE PAGE ===== */
+        /* ===== FOOTER ===== */
         footer {
             background-color: #5a3a25;
             color: white;
@@ -283,7 +283,7 @@
             color: #b89a80;
         }
 
-        /* ===== ANIMATION D'APPARITION ===== */
+        /* ===== FADE-IN ANIMATION ===== */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -295,7 +295,7 @@
             transform: translateY(0);
         }
 
-        /* ===== RESPONSIVE (téléphone) ===== */
+        /* ===== RESPONSIVE (phone) ===== */
         @media (max-width: 700px) {
             header {
                 flex-direction: column;
@@ -316,44 +316,44 @@
 </head>
 <body>
 
-    <!-- ===== BANDE MARRON EN HAUT ===== -->
+    <!-- ===== TOP BROWN BAR ===== -->
     <header>
         <div class="logo">
             <span class="cup">☕</span>
-            <h1>Ayoub Wcoffe</h1>
+            <h1>Ayoub Coffee</h1>
         </div>
         <nav>
             <ul>
-                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#home">Home</a></li>
                 <li><a href="#menu">Menu</a></li>
-                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Vague lisse sous la bande -->
+    <!-- Smooth wave under the bar -->
     <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
         <path fill="#5a3a25" d="M0,40 C240,90 480,0 720,30 C960,60 1200,10 1440,40 L1440,0 L0,0 Z"></path>
     </svg>
 
-    <!-- ===== SECTION D'ACCUEIL ===== -->
-    <section class="hero" id="accueil">
-        <h2>Le café du monde entier</h2>
-        <p>Voyagez à travers les saveurs. Des grains venus des quatre coins du globe, torréfiés avec passion.</p>
-        <a href="#menu" class="btn">Voir le menu ☕</a>
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <h2>Coffee from around the world</h2>
+        <p>Travel through flavors. Beans from every corner of the globe, roasted with passion.</p>
+        <a href="#menu" class="btn">See the menu ☕</a>
     </section>
 
-    <!-- ===== SECTION DES CAFÉS ===== -->
-    <h2 class="section-title" id="menu">Nos Cafés</h2>
-    <p class="section-subtitle">Une sélection venue des quatre coins du monde</p>
+    <!-- ===== COFFEE SECTION ===== -->
+    <h2 class="section-title" id="menu">Our Coffees</h2>
+    <p class="section-subtitle">A selection from the four corners of the world</p>
     <section class="coffees">
 
         <div class="coffee-card fade-in">
             <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=500" alt="Espresso">
             <div class="info">
-                <h3>Espresso Italiano</h3>
-                <p>Un espresso intense et corsé, à l'italienne.</p>
+                <h3>Italian Espresso</h3>
+                <p>An intense and bold espresso, Italian style.</p>
                 <span class="price">250 DA</span>
             </div>
         </div>
@@ -362,7 +362,7 @@
             <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500" alt="Cappuccino">
             <div class="info">
                 <h3>Cappuccino</h3>
-                <p>Espresso, lait vapeur et mousse onctueuse.</p>
+                <p>Espresso, steamed milk and a creamy foam.</p>
                 <span class="price">380 DA</span>
             </div>
         </div>
@@ -370,8 +370,8 @@
         <div class="coffee-card fade-in">
             <img src="https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?w=500" alt="Mocha">
             <div class="info">
-                <h3>Mocha du Brésil</h3>
-                <p>Café brésilien doux avec une touche de chocolat.</p>
+                <h3>Brazilian Mocha</h3>
+                <p>Smooth Brazilian coffee with a touch of chocolate.</p>
                 <span class="price">420 DA</span>
             </div>
         </div>
@@ -380,60 +380,59 @@
             <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500" alt="Iced Latte">
             <div class="info">
                 <h3>Iced Latte</h3>
-                <p>Café glacé rafraîchissant, parfait en été.</p>
+                <p>A refreshing iced coffee, perfect for summer.</p>
                 <span class="price">400 DA</span>
             </div>
         </div>
 
         <div class="coffee-card fade-in">
-            <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=500" alt="Café éthiopien">
+            <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?w=500" alt="Ethiopian coffee">
             <div class="info">
-                <h3>Éthiopien Pur Origine</h3>
-                <p>Notes fruitées et florales d'Afrique de l'Est.</p>
+                <h3>Ethiopian Single Origin</h3>
+                <p>Fruity and floral notes from East Africa.</p>
                 <span class="price">450 DA</span>
             </div>
         </div>
 
         <div class="coffee-card fade-in">
-            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=500" alt="Café colombien">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=500" alt="Colombian coffee">
             <div class="info">
-                <h3>Café Colombien</h3>
-                <p>Équilibré et aromatique, un grand classique.</p>
+                <h3>Colombian Coffee</h3>
+                <p>Balanced and aromatic, a true classic.</p>
                 <span class="price">350 DA</span>
             </div>
         </div>
 
     </section>
 
-    <!-- ===== SECTION À PROPOS ===== -->
-    <section class="about" id="apropos">
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about" id="about">
         <div class="about-content fade-in">
-            <h2>Notre histoire</h2>
+            <h2>Our Story</h2>
             <p>
-                Fondé en 2020, Wcoffe est né d'une passion pour le voyage et le café.
-                Nous parcourons le monde pour dénicher les meilleurs grains, de l'Éthiopie
-                au Brésil en passant par la Colombie. Chaque tasse est une invitation à
-                l'évasion, torréfiée avec soin et servie avec le sourire. Chez Wcoffe,
-                on ne sert pas juste du café — on sert un voyage. ✈️☕
+                Founded in 2020, Ayoub Coffee was born from a passion for travel and coffee.
+                We travel the world to find the finest beans, from Ethiopia to Brazil and
+                Colombia. Every cup is an invitation to escape, roasted with care and served
+                with a smile. At Ayoub Coffee, we don't just serve coffee — we serve a journey. ✈️☕
             </p>
         </div>
     </section>
 
-    <!-- ===== PIED DE PAGE ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer id="contact">
-        <div class="footer-logo">☕ Ayoub Wcoffe</div>
+        <div class="footer-logo">☕ Ayoub Coffee</div>
         <div class="socials">
             <span>📷</span>
             <span>📘</span>
             <span>🐦</span>
         </div>
-        <p>Ouvert tous les jours de 7h à 20h</p>
+        <p>Open every day from 7 AM to 8 PM</p>
         <p>Bouchaoui</p>
         <p>ayoubgarri7@gmail.com</p>
-        <p class="copyright">© 2026 Ayoub Wcoffe — Tous droits réservés</p>
+        <p class="copyright">© 2026 Ayoub Coffee — All rights reserved</p>
     </footer>
 
-    <!-- ===== ANIMATION D'APPARITION AU DÉFILEMENT ===== -->
+    <!-- ===== FADE-IN ON SCROLL ===== -->
     <script>
         const faders = document.querySelectorAll('.fade-in');
         const appear = new IntersectionObserver((entries) => {
