@@ -364,10 +364,136 @@
             font-weight: 300;
         }
 
+        /* ===== SEARCH BAR ===== */
+        .search-wrap {
+            text-align: center;
+            margin-bottom: 35px;
+            padding: 0 20px;
+        }
+
+        .search-wrap input {
+            width: 100%;
+            max-width: 450px;
+            padding: 14px 22px;
+            border: 2px solid var(--beige);
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            background: var(--card);
+            color: var(--text);
+            transition: border-color 0.2s;
+        }
+
+        .search-wrap input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .no-results {
+            text-align: center;
+            color: var(--muted);
+            font-weight: 300;
+            padding: 30px;
+            grid-column: 1 / -1;
+        }
+
+        /* ===== REVIEWS SECTION ===== */
+        .reviews {
+            padding: 20px 20px 70px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .review-card {
+            background: var(--card);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(90,58,37,0.1);
+        }
+
+        .review-stars {
+            color: #f1c40f;
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            color: var(--text);
+            font-weight: 300;
+            font-style: italic;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .review-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .review-avatar {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #3a2a20;
+            font-family: 'Fredoka', cursive;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .review-name {
+            font-weight: 600;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        /* ===== BACK TO TOP BUTTON ===== */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--brown);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            z-index: 150;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--brown-light);
+            transform: translateY(-3px);
+        }
+
         /* ===== PRODUCT GRID ===== */
         .products {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 300px));
+            justify-content: center;
             gap: 30px;
             max-width: 1050px;
             margin: 0 auto 70px;
@@ -379,7 +505,14 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 6px 20px rgba(90,58,37,0.12);
-            transition: transform 0.25s, box-shadow 0.25s;
+            transition: transform 0.25s, box-shadow 0.25s, opacity 0.4s ease;
+        }
+
+        /* Smooth hide/show when searching */
+        .product-card.hidden {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
         }
 
         .product-card:hover {
@@ -704,13 +837,71 @@
             border-top: 2px solid var(--beige);
         }
 
+        /* Promo code input */
+        .promo-row {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+
+        .promo-row input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px;
+            border: 2px solid var(--beige);
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            background: var(--bg);
+            color: var(--text);
+        }
+
+        .promo-row input:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .promo-row button {
+            flex-shrink: 0;
+            background: var(--accent);
+            color: #3a2a20;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .promo-msg {
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .promo-msg.ok { color: #27ae60; }
+        .promo-msg.bad { color: #c0392b; }
+
+        /* Cart total breakdown */
+        .total-line {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: var(--muted);
+            font-weight: 300;
+            margin-bottom: 6px;
+        }
+
         .cart-total {
             display: flex;
             justify-content: space-between;
             font-size: 1.2rem;
             font-weight: 700;
             color: var(--text);
-            margin-bottom: 15px;
+            margin: 12px 0 15px;
+            padding-top: 12px;
+            border-top: 1px solid var(--beige);
         }
 
         .checkout-btn {
@@ -939,7 +1130,13 @@
     <!-- ===== COFFEE SECTION ===== -->
     <h2 class="section-title" id="menu">Our Coffees</h2>
     <p class="section-subtitle">A selection from the four corners of the world</p>
-    <section class="products">
+
+    <!-- Search bar -->
+    <div class="search-wrap">
+        <input type="text" id="searchInput" placeholder="🔍 Search a coffee..." onkeyup="searchCoffees()">
+    </div>
+
+    <section class="products" id="coffeeGrid">
 
         <div class="product-card fade-in">
             <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?w=500" alt="Espresso">
@@ -1050,6 +1247,42 @@
 
     </section>
 
+    <!-- ===== REVIEWS SECTION ===== -->
+    <h2 class="section-title">What our customers say</h2>
+    <p class="section-subtitle">They love their coffee journey ☕</p>
+    <section class="reviews">
+        <div class="reviews-grid">
+
+            <div class="review-card fade-in">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"Best coffee in Bouchaoui! The Ethiopian one is my favorite. Always fresh and full of flavor."</p>
+                <div class="review-author">
+                    <div class="review-avatar">S</div>
+                    <span class="review-name">Sarah K.</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">"A cozy place with amazing pastries. The croissants are to die for. I come here every morning!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">M</div>
+                    <span class="review-name">Mehdi B.</span>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-stars">★★★★☆</div>
+                <p class="review-text">"Great atmosphere and friendly staff. The iced latte is perfect for hot days. Highly recommend!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">L</div>
+                    <span class="review-name">Lina M.</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ===== ABOUT SECTION ===== -->
     <section class="about" id="about">
         <div class="about-content fade-in">
@@ -1098,22 +1331,52 @@
             <p class="cart-empty">Your cart is empty ☕</p>
         </div>
         <div class="cart-footer">
+            <!-- Promo code -->
+            <div class="promo-row">
+                <input type="text" id="promoInput" placeholder="Promo code (try COFFEE10)">
+                <button onclick="applyPromo()">Apply</button>
+            </div>
+            <p class="promo-msg" id="promoMsg"></p>
+
+            <!-- Total breakdown -->
+            <div class="total-line"><span>Subtotal</span><span id="subtotal">0 DA</span></div>
+            <div class="total-line"><span>Delivery</span><span id="delivery">0 DA</span></div>
+            <div class="total-line" id="discountLine" style="display:none;"><span>Discount</span><span id="discount" style="color:#27ae60;">-0 DA</span></div>
             <div class="cart-total">
                 <span>Total:</span>
                 <span id="cartTotal">0 DA</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn" onclick="checkout()" disabled>Place Order</button>
+            <button class="checkout-btn" id="checkoutBtn" onclick="openCheckout()" disabled>Checkout</button>
         </div>
     </div>
 
-    <!-- ===== LOGIN MODAL ===== -->
+    <!-- ===== LOGIN / SIGN UP MODAL ===== -->
     <div class="overlay" id="loginOverlay" onclick="closeLogin()"></div>
     <div class="modal" id="loginModal">
         <button class="close-x" onclick="closeLogin()">×</button>
-        <h3>Log in ☕</h3>
-        <input type="text" id="loginUser" placeholder="Username">
-        <input type="password" id="loginPass" placeholder="Password">
-        <button onclick="doLogin()">Log in</button>
+
+        <!-- LOG IN form -->
+        <div id="loginForm">
+            <h3>Log in ☕</h3>
+            <input type="text" id="loginUser" placeholder="Username">
+            <input type="password" id="loginPass" placeholder="Password">
+            <button onclick="doLogin()">Log in</button>
+            <p style="text-align:center; margin-top:15px; color:var(--muted); font-weight:300; font-size:0.9rem;">
+                No account? <a href="#" onclick="showSignup(); return false;" style="color:#a06a3f; font-weight:600;">Sign up</a>
+            </p>
+        </div>
+
+        <!-- SIGN UP form -->
+        <div id="signupForm" style="display:none;">
+            <h3>Create account ☕</h3>
+            <input type="text" id="signupUser" placeholder="Username">
+            <input type="email" id="signupEmail" placeholder="Email">
+            <input type="password" id="signupPass" placeholder="Password">
+            <button onclick="doSignup()">Sign up</button>
+            <p style="text-align:center; margin-top:15px; color:var(--muted); font-weight:300; font-size:0.9rem;">
+                Already have an account? <a href="#" onclick="showLogin(); return false;" style="color:#a06a3f; font-weight:600;">Log in</a>
+            </p>
+        </div>
     </div>
 
     <!-- ===== PROFILE MODAL ===== -->
@@ -1130,15 +1393,11 @@
         <div style="background:var(--beige); border-radius:12px; padding:16px; margin-bottom:18px;">
             <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(150,120,100,0.15);">
                 <span style="color:var(--muted); font-weight:300; font-size:0.9rem;">Email</span>
-                <span style="color:var(--text); font-weight:600; font-size:0.9rem;">ayoubgarri7@gmail.com</span>
-            </div>
-            <div style="display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px solid rgba(150,120,100,0.15);">
-                <span style="color:var(--muted); font-weight:300; font-size:0.9rem;">Orders</span>
-                <span style="color:var(--text); font-weight:600; font-size:0.9rem;" id="profileOrderCount">0</span>
+                <span style="color:var(--text); font-weight:600; font-size:0.9rem;" id="profileEmail">-</span>
             </div>
             <div style="display:flex; justify-content:space-between; padding:8px 0;">
-                <span style="color:var(--muted); font-weight:300; font-size:0.9rem;">Loyalty points</span>
-                <span style="color:#a06a3f; font-weight:600; font-size:0.9rem;" id="profilePoints">0 ⭐</span>
+                <span style="color:var(--muted); font-weight:300; font-size:0.9rem;">Orders</span>
+                <span style="color:var(--text); font-weight:600; font-size:0.9rem;" id="profileOrderCount">0</span>
             </div>
         </div>
         <button onclick="closeGeneric()">Close</button>
@@ -1193,6 +1452,32 @@
         </div>
     </div>
 
+    <!-- ===== CHECKOUT MODAL ===== -->
+    <div class="overlay" id="checkoutOverlay" onclick="closeCheckout()"></div>
+    <div class="modal" id="checkoutModal">
+        <button class="close-x" onclick="closeCheckout()">×</button>
+        <h3>Checkout 💳</h3>
+        <input type="text" id="checkoutName" placeholder="Full name">
+        <input type="text" id="checkoutAddress" placeholder="Delivery address">
+        <input type="tel" id="checkoutPhone" placeholder="Phone number">
+
+        <p style="color:var(--muted); font-weight:600; font-size:0.9rem; margin:5px 0 10px;">Payment method</p>
+        <div style="display:flex; gap:10px; margin-bottom:18px;">
+            <label style="flex:1; display:flex; align-items:center; gap:8px; padding:10px; border:2px solid var(--beige); border-radius:10px; cursor:pointer; color:var(--text); font-size:0.85rem;">
+                <input type="radio" name="payment" value="cash" checked> 💵 Cash
+            </label>
+            <label style="flex:1; display:flex; align-items:center; gap:8px; padding:10px; border:2px solid var(--beige); border-radius:10px; cursor:pointer; color:var(--text); font-size:0.85rem;">
+                <input type="radio" name="payment" value="card"> 💳 Card
+            </label>
+        </div>
+
+        <div class="cart-total" style="border:none; margin:0 0 15px; padding:0;">
+            <span>Total:</span>
+            <span id="checkoutTotal">0 DA</span>
+        </div>
+        <button onclick="confirmOrder()">Place Order</button>
+    </div>
+
     <!-- ===== CONFIRMATION MESSAGE ===== -->
     <div class="confirmation" id="confirmation">
         <div class="check">✅</div>
@@ -1200,11 +1485,16 @@
         <p>Your coffee is on its way ☕</p>
     </div>
 
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         /* ===== CART SYSTEM ===== */
         let cart = [];
         let orders = []; // saved orders history
+        const DELIVERY_FEE = 100; // delivery fee in DA
+        let promoApplied = false; // COFFEE10 = 10% off
 
         function addToCart(name, price) {
             const existing = cart.find(item => item.name === name);
@@ -1231,18 +1521,34 @@
         function updateCart() {
             const cartItems = document.getElementById('cartItems');
             const cartCount = document.getElementById('cartCount');
-            const cartTotal = document.getElementById('cartTotal');
             const checkoutBtn = document.getElementById('checkoutBtn');
 
-            let totalItems = 0, totalPrice = 0;
+            let totalItems = 0, subtotal = 0;
             cart.forEach(item => {
                 totalItems += item.qty;
-                totalPrice += item.price * item.qty;
+                subtotal += item.price * item.qty;
             });
 
             cartCount.textContent = totalItems;
-            cartTotal.textContent = totalPrice + ' DA';
             checkoutBtn.disabled = cart.length === 0;
+
+            // Delivery fee only if there is something in the cart
+            const delivery = cart.length > 0 ? DELIVERY_FEE : 0;
+            // Discount (10% of subtotal) if promo applied
+            const discount = promoApplied ? Math.round(subtotal * 0.10) : 0;
+            const total = subtotal + delivery - discount;
+
+            document.getElementById('subtotal').textContent = subtotal + ' DA';
+            document.getElementById('delivery').textContent = delivery + ' DA';
+            document.getElementById('cartTotal').textContent = total + ' DA';
+
+            const discountLine = document.getElementById('discountLine');
+            if (discount > 0) {
+                discountLine.style.display = 'flex';
+                document.getElementById('discount').textContent = '-' + discount + ' DA';
+            } else {
+                discountLine.style.display = 'none';
+            }
 
             if (cart.length === 0) {
                 cartItems.innerHTML = '<p class="cart-empty">Your cart is empty ☕</p>';
@@ -1268,6 +1574,31 @@
             });
         }
 
+        // Compute the current total (used by checkout)
+        function getCartTotal() {
+            let subtotal = 0;
+            cart.forEach(item => subtotal += item.price * item.qty);
+            const delivery = cart.length > 0 ? DELIVERY_FEE : 0;
+            const discount = promoApplied ? Math.round(subtotal * 0.10) : 0;
+            return subtotal + delivery - discount;
+        }
+
+        // Apply the promo code
+        function applyPromo() {
+            const code = document.getElementById('promoInput').value.trim().toUpperCase();
+            const msg = document.getElementById('promoMsg');
+            if (code === 'COFFEE10') {
+                promoApplied = true;
+                msg.textContent = '✅ Promo applied! 10% off';
+                msg.className = 'promo-msg ok';
+            } else {
+                promoApplied = false;
+                msg.textContent = '❌ Invalid promo code';
+                msg.className = 'promo-msg bad';
+            }
+            updateCart();
+        }
+
         function openCart() {
             document.getElementById('cartPanel').classList.add('open');
             document.getElementById('cartOverlay').classList.add('open');
@@ -1277,21 +1608,52 @@
             document.getElementById('cartOverlay').classList.remove('open');
         }
 
-        function checkout() {
+        // Open the checkout modal
+        function openCheckout() {
             if (cart.length === 0) return;
-            // Save this order to history
-            let total = 0;
-            cart.forEach(item => total += item.price * item.qty);
+            closeCart();
+            document.getElementById('checkoutTotal').textContent = getCartTotal() + ' DA';
+            document.getElementById('checkoutOverlay').classList.add('open');
+            document.getElementById('checkoutModal').classList.add('open');
+        }
+        function closeCheckout() {
+            document.getElementById('checkoutOverlay').classList.remove('open');
+            document.getElementById('checkoutModal').classList.remove('open');
+        }
+
+        // Confirm the order
+        function confirmOrder() {
+            const name = document.getElementById('checkoutName').value.trim();
+            const address = document.getElementById('checkoutAddress').value.trim();
+            const phone = document.getElementById('checkoutPhone').value.trim();
+
+            if (name === '' || address === '' || phone === '') {
+                alert('Please fill in your delivery details.');
+                return;
+            }
+
+            // Save the order to history
+            const total = getCartTotal();
             orders.push({
                 date: new Date().toLocaleDateString(),
                 items: cart.map(i => i.name + ' x' + i.qty),
                 total: total
             });
-            closeCart();
+
+            closeCheckout();
+            // Reset cart and promo
+            cart = [];
+            promoApplied = false;
+            document.getElementById('promoInput').value = '';
+            document.getElementById('promoMsg').textContent = '';
+            document.getElementById('checkoutName').value = '';
+            document.getElementById('checkoutAddress').value = '';
+            document.getElementById('checkoutPhone').value = '';
+            updateCart();
+
+            // Show confirmation
             const conf = document.getElementById('confirmation');
             conf.classList.add('show');
-            cart = [];
-            updateCart();
             setTimeout(() => conf.classList.remove('show'), 3000);
         }
 
@@ -1300,10 +1662,37 @@
             document.body.classList.toggle('dark');
         }
 
-        /* ===== LOGIN / LOGOUT (visual only) ===== */
+        /* ===== LOGIN / SIGNUP / LOGOUT ===== */
         let currentUser = '';
+        let currentEmail = '';
+
+        // Get all accounts stored in the browser
+        function getAccounts() {
+            try {
+                return JSON.parse(localStorage.getItem('accounts') || '{}');
+            } catch (e) {
+                return {};
+            }
+        }
+        // Save accounts
+        function saveAccounts(accounts) {
+            try {
+                localStorage.setItem('accounts', JSON.stringify(accounts));
+            } catch (e) {}
+        }
+
+        // Switch between login and signup forms
+        function showSignup() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+        }
+        function showLogin() {
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
 
         function openLogin() {
+            showLogin();
             document.getElementById('loginModal').classList.add('open');
             document.getElementById('loginOverlay').classList.add('open');
         }
@@ -1311,20 +1700,81 @@
             document.getElementById('loginModal').classList.remove('open');
             document.getElementById('loginOverlay').classList.remove('open');
         }
-        function doLogin() {
-            const user = document.getElementById('loginUser').value.trim();
-            if (user === '') {
-                alert('Please enter a username.');
+
+        // Create a new account
+        function doSignup() {
+            const user = document.getElementById('signupUser').value.trim();
+            const email = document.getElementById('signupEmail').value.trim();
+            const pass = document.getElementById('signupPass').value;
+
+            if (user === '' || email === '' || pass === '') {
+                alert('Please fill in all fields.');
                 return;
             }
+            if (!email.includes('@')) {
+                alert('Please enter a valid email.');
+                return;
+            }
+
+            const accounts = getAccounts();
+            if (accounts[user]) {
+                alert('This username already exists. Please log in.');
+                return;
+            }
+
+            // Save the new account
+            accounts[user] = { email: email, password: pass };
+            saveAccounts(accounts);
+
+            // Log in automatically after signup
+            loginUser(user, email);
+            closeLogin();
+            clearForms();
+        }
+
+        // Log in with an existing account
+        function doLogin() {
+            const user = document.getElementById('loginUser').value.trim();
+            const pass = document.getElementById('loginPass').value;
+
+            if (user === '' || pass === '') {
+                alert('Please enter your username and password.');
+                return;
+            }
+
+            const accounts = getAccounts();
+            if (!accounts[user]) {
+                alert('No account found with this username. Please sign up first.');
+                return;
+            }
+            if (accounts[user].password !== pass) {
+                alert('Wrong password.');
+                return;
+            }
+
+            loginUser(user, accounts[user].email);
+            closeLogin();
+            clearForms();
+        }
+
+        // Apply the logged-in state
+        function loginUser(user, email) {
             currentUser = user;
+            currentEmail = email;
             document.getElementById('loginBtn').style.display = 'none';
             document.getElementById('profileWrap').style.display = 'block';
             document.getElementById('avatar').textContent = user.charAt(0).toUpperCase();
             document.getElementById('dropdownName').textContent = 'Hi, ' + user;
-            closeLogin();
+            // Remember who is logged in (survives refresh)
+            try { localStorage.setItem('currentUser', user); } catch (e) {}
+        }
+
+        function clearForms() {
             document.getElementById('loginUser').value = '';
             document.getElementById('loginPass').value = '';
+            document.getElementById('signupUser').value = '';
+            document.getElementById('signupEmail').value = '';
+            document.getElementById('signupPass').value = '';
         }
         // Ask for confirmation before logging out
         function confirmLogout() {
@@ -1342,6 +1792,10 @@
             document.getElementById('profileWrap').style.display = 'none';
             document.getElementById('dropdown').classList.remove('open');
             document.getElementById('loginBtn').style.display = 'inline-block';
+            currentUser = '';
+            currentEmail = '';
+            // Forget the logged-in user
+            try { localStorage.removeItem('currentUser'); } catch (e) {}
         }
 
         // Open / close the profile dropdown
@@ -1369,9 +1823,8 @@
             document.getElementById('dropdown').classList.remove('open');
             document.getElementById('profileUserName').textContent = currentUser;
             document.getElementById('profileAvatar').textContent = currentUser.charAt(0).toUpperCase();
-            // Number of orders and loyalty points (10 points per order)
+            document.getElementById('profileEmail').textContent = currentEmail;
             document.getElementById('profileOrderCount').textContent = orders.length;
-            document.getElementById('profilePoints').textContent = (orders.length * 10) + ' ⭐';
             document.getElementById('genericOverlay').classList.add('open');
             document.getElementById('profileModal').classList.add('open');
         }
@@ -1426,6 +1879,78 @@
             }
         }
         updateStatus();
+
+        /* ===== ON PAGE LOAD: restore logged-in user ===== */
+        (function restoreSession() {
+            try {
+                const savedUser = localStorage.getItem('currentUser');
+                if (savedUser) {
+                    const accounts = getAccounts();
+                    if (accounts[savedUser]) {
+                        loginUser(savedUser, accounts[savedUser].email);
+                    }
+                }
+            } catch (e) {}
+        })();
+
+        /* ===== SEARCH COFFEES ===== */
+        function searchCoffees() {
+            const query = document.getElementById('searchInput').value.toLowerCase().trim();
+            const grid = document.getElementById('coffeeGrid');
+            const cards = grid.querySelectorAll('.product-card');
+            let found = 0;
+
+            cards.forEach(card => {
+                // Search only in the coffee NAME (not the description)
+                const name = card.querySelector('h3').textContent.toLowerCase();
+                const matches = name.includes(query);
+
+                if (matches) {
+                    if (card.style.display === 'none') {
+                        card.style.display = 'block';
+                        card.classList.add('hidden');
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => card.classList.remove('hidden'));
+                        });
+                    } else {
+                        card.classList.remove('hidden');
+                    }
+                    found++;
+                } else {
+                    card.classList.add('hidden');
+                    setTimeout(() => {
+                        if (card.classList.contains('hidden')) {
+                            card.style.display = 'none';
+                        }
+                    }, 350);
+                }
+            });
+
+            let noRes = grid.querySelector('.no-results');
+            if (found === 0) {
+                if (!noRes) {
+                    noRes = document.createElement('p');
+                    noRes.className = 'no-results';
+                    noRes.textContent = 'No coffee found ☕';
+                    grid.appendChild(noRes);
+                }
+            } else if (noRes) {
+                noRes.remove();
+            }
+        }
+
+        /* ===== BACK TO TOP ===== */
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        window.addEventListener('scroll', function() {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 400) {
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+            }
+        });
 
         /* ===== FADE-IN ON SCROLL ===== */
         const faders = document.querySelectorAll('.fade-in');
